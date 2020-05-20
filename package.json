@@ -1,0 +1,19 @@
+{
+  "name": "scheduling-job",
+  "version": "1.0.0",
+  "description": "Agendador de jobs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/TitaniumCortez/micro-service-scheduling-job.git",
+  "keywords": [
+    "scheduling-job"
+  ],
+  "author": "Renan Cortez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TitaniumCortez/micro-service-scheduling-job/issues"
+  },
+  "homepage": "https://github.com/TitaniumCortez/micro-service-scheduling-job#readme"
+}
