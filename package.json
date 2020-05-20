@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TitaniumCortez/micro-service-scheduling-job/issues"
   },
-  "homepage": "https://github.com/TitaniumCortez/micro-service-scheduling-job#readme"
+  "homepage": "https://github.com/TitaniumCortez/micro-service-scheduling-job#readme",
+  "dependencies": {
+    "moment": "^2.25.3"
+  }
 }
