@@ -26,24 +26,71 @@ const data = [
         "estimatedTime": "6 horas",
     }
 ]
-
-const horas = new Array(24).fill(0);
+const hora_inicio_janela = moment(janela_de_execucao.dataInicio).hours();
+const hora_fim_janela = moment(janela_de_execucao.dataFim).hours();
 const diferenca_de_dias = dayDiff(janela_de_execucao);
-// Adicionando os horas aos dias
-const dias = new Array(diferenca_de_dias).fill(horas);
+const dias = new Array(diferenca_de_dias);
 const agenda = new Map();
 
-//Inicializa a agenda
-dias.forEach((element, index) => {
-    agenda.set(index, new Array());
-});
+for (let i = 0; i < dias.length; i++) {
+    //Inicializa os dias
+    dias[i] = new Array(24);
+    //Inicializa agenda
+    agenda.set(i, new Array());
+}
+
+dias[0][hora_inicio_janela] = '-';
+dias[dias.length - 1][hora_fim_janela] = '-';
+
+
+let count = 0;
+//Inicializa as horas disponiveis da janela
+dias.forEach((dia, index) => {
+    for (let hora = 0; hora < dia.length; hora++) {
+
+        if (count >= 2)
+            break;
+
+        if (dia[hora] === '-')
+            count++;
+
+        if (count != 0)
+            dia[hora] = 0;
+
+    }
+})
+
+
+
+console.table(dias);
 
 // Agendamento de job
 data.forEach((element) => {
+    const hora_estimada_job = element.estimatedTime.charAt(0);
 
-    const hourEstimated = element.estimatedTime.charAt(0);
-    console.log(hourEstimated);
+    //Verifica se data para agendamento esta entre o horario da janela
+    // if (!dentroPeriodoJanela(element))
+
+    for (let dia of dias) {
+
+        dia[9] = '-';
+
+    }
+
 })
+
+
+dias.forEach((element, index) => {
+    console.log(element);
+});
+
+console.log(dias);
+
+function dentroPeriodoJanela(element) {
+    return moment(element.maxDate).isBetween(janela_de_execucao.dataInicio, janela_de_execucao.dataFim)
+        || moment(element.maxDate).isSame(janela_de_execucao.dataFim)
+        || moment(element.maxDate).isSame(janela_de_execucao.dataInicio);
+}
 
 function dayDiff({ dataInicio, dataFim }) {
     return moment(dataFim).diff(dataInicio, 'days') + 1;
