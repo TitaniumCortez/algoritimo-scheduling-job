@@ -36,7 +36,7 @@ for (let i = 0; i < dias.length; i++) {
     //Inicializa os dias
     dias[i] = new Array(24);
     //Inicializa agenda
-    agenda.set(i, new Array());
+    agenda.set(i, { hours: 0, data: new Array() });
 }
 
 dias[0][hora_inicio_janela] = '-';
@@ -60,31 +60,55 @@ dias.forEach((dia, index) => {
     }
 })
 
+//ordenacao de prioridade de agendamento por date e horario
 
 
 console.table(dias);
 
 // Agendamento de job
-data.forEach((element) => {
-    const hora_estimada_job = element.estimatedTime.charAt(0);
+for (let i = 0; i < data.length; i++) {
+    const element = data[i];
+    const hora_estimada_job = Number(element.estimatedTime.charAt(0));
+    const maximo_time_execucao
+    let agendado = false;
 
-    //Verifica se data para agendamento esta entre o horario da janela
-    // if (!dentroPeriodoJanela(element))
 
-    for (let dia of dias) {
+    if (agendado)
+        break;
 
-        dia[9] = '-';
+    for (let index = 0; index < dias.length; index++) {
+        let horas_agendada = agenda.get(index).hours;
+        let dia = dias[index];
 
+        if (agendado)
+            break;
+
+        for (let hora = 0; hora < dia.length; hora++) {
+            //Analisa disponibilidade de agenda
+            if (dia[hora] == 0 && (horas_agendada + hora_estimada_job) <= janela_de_execucao.periodoExecucao
+                &&             ) {
+                horas_agendada += hora_estimada_job;
+
+                //Agenda o job com valor 1
+                dia.fill(1, hora, hora + hora_estimada_job);
+
+                const result = agenda.get(index);
+                result.hours = horas_agendada;
+                result.data.push(element.id);
+
+                agendado = true;
+
+                break;
+            }
+        }
     }
+}
 
-})
+console.log(agenda.get(0));
+console.log(agenda.get(1));
 
 
-dias.forEach((element, index) => {
-    console.log(element);
-});
-
-console.log(dias);
+console.table(dias);
 
 function dentroPeriodoJanela(element) {
     return moment(element.maxDate).isBetween(janela_de_execucao.dataInicio, janela_de_execucao.dataFim)
@@ -94,6 +118,10 @@ function dentroPeriodoJanela(element) {
 
 function dayDiff({ dataInicio, dataFim }) {
     return moment(dataFim).diff(dataInicio, 'days') + 1;
+}
+
+const sortDate = () => {
+    
 }
 
 // [1, 3] , [2]
