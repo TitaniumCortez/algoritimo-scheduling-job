@@ -11,7 +11,7 @@ Algoritmo para agendar jobs a serem executados respeitando os criteiros da janel
   - Moment
   - Jest
 
-#### `Moment:` Utilizado para formatação de Datas
+#### `Moment:` Utilizado para manipular datas e horas im javascript.
 #### `Jest:` Framework para auxiliar nos teste unitários.
 
 
@@ -38,20 +38,20 @@ npm install
 
 ## Lógica
 
-Criar uma matriz multimencional sendo [dias][horas] representando o periodo da janela em aberto.
+Criado uma matriz multidimensional sendo [dias][horas] representando o periodo da janela em aberto.
 
-As horas são marcadas como o valor `0` para as horas disponiveis para agendamentos.
+As horas disponiveis para agendamentos são marcados com o vlaor  `0` 
 
-<img src="docs/tableValue0.png" title="Tabela com horas e valores a 0" alt="table values">
+<img src="docs/images/tableValue0.png" title="Tabela com horas e valores a 0" alt="table values">
 
 
-Quando ocorre o agendamento as horas utilizadas são marcados com o valor `1`.
+Quando ocorre o agendamento as horas utilizadas para conclusão do job são marcados com o valor `1`.
 
-<img src="docs/tableValue1.png" title="Tabela com horas e valores a 0" alt="table values">
+<img src="docs/images/tableValue1.png" title="Tabela com horas e valores a 0" alt="table values">
 
 # Premissas
 
 Para ocorrer um agendamento temos algumas premissas sendo:
-  - Máximo 8 horas por dia
-  - Deve respeitar a Data e horario
+  - Array com execução no máximo 8 horas 
+  - Deve respeitar a data máxima de conclusão (Data e horário)
 
