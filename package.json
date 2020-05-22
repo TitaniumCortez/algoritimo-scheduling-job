@@ -7,16 +7,16 @@
     "test": "jest",
     "start": "node ./src/index.js"
   },
-  "repository": "git+https://github.com/TitaniumCortez/micro-service-scheduling-job.git",
+  "repository": "git+https://github.com/TitaniumCortez/algoritimo-scheduling-job.git",
   "keywords": [
     "scheduling-job"
   ],
   "author": "Renan Cortez",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TitaniumCortez/micro-service-scheduling-job/issues"
+    "url": "https://github.com/TitaniumCortez/algoritimo-scheduling-job.git/issues"
   },
-  "homepage": "https://github.com/TitaniumCortez/micro-service-scheduling-job#readme",
+  "homepage": "https://github.com/TitaniumCortez/algoritmo-scheduling-job#readme",
   "dependencies": {
     "jest": "^26.0.1",
     "moment": "^2.25.3"
