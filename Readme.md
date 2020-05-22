@@ -40,6 +40,10 @@ npm install
 
 Criado uma matriz multidimensional sendo [dias][horas] representando o periodo da janela em aberto.
 
+Leitura da matriz :
+  - index representa dias
+  - Para cada index temos  um array representando as horas do dia.
+
 As horas disponiveis para agendamentos são marcados com o vlaor  `0` 
 
 <img src="docs/images/tableValue0.png" title="Tabela com horas e valores a 0" alt="table values">
