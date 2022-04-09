@@ -19,6 +19,6 @@
   "homepage": "https://github.com/TitaniumCortez/algoritmo-scheduling-job#readme",
   "dependencies": {
     "jest": "^26.0.1",
-    "moment": "^2.25.3"
+    "moment": "^2.29.2"
   }
 }
